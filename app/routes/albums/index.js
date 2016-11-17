@@ -15,7 +15,7 @@ export default Ember.Route.extend({
         page: params.page
       });
     },
-    resetController(controller, isExiting, transition) {
+    resetController(controller, isExiting) {
       if (isExiting) {
         controller.setProperties({searchFilter: '',yearFilter: '',sort_on: 'name', sort_direction: '', per_page: 0, page: 1});
       }
