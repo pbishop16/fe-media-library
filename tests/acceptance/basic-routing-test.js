@@ -31,6 +31,16 @@ test('should show artists', function (assert) {
   });
 });
 
+test('should show artists', function (assert) {
+  visit('/artists');
+
+  click('li:first-child');
+
+  andThen(function () {
+    assert.equal(find('.album-item').length, 20, 'should show 20 artists');
+  });
+});
+
 test('should go back to application index', function(assert) {
   visit('/artists');
 
@@ -38,5 +48,44 @@ test('should go back to application index', function(assert) {
 
   andThen(function() {
     assert.equal(currentURL(), '/');
+  });
+});
+
+test('should show artists template', function(assert) {
+  visit('/');
+
+  click('a.albums-link');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/albums');
+  });
+});
+
+test('should list albums', function (assert) {
+  visit('/albums');
+
+  andThen(function () {
+    assert.equal(find('li.album-item').length, 20, 'should see 20 listings');
+  });
+});
+
+test('should show albums', function (assert) {
+  visit('/albums');
+
+  click('li:first-child');
+
+  andThen(function () {
+    assert.equal(find('.album').length, 1, 'should show one album');
+  });
+});
+
+test('access albums through artist', function (assert) {
+  visit('/artists');
+
+  click('li:first-child');
+  click('.album-item:first-child');
+
+  andThen(function () {
+    assert.equal(find('.album').length, 1, 'should show one album');
   });
 });
