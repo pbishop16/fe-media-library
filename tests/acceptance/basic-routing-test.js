@@ -89,3 +89,24 @@ test('access albums through artist', function (assert) {
     assert.equal(find('.album').length, 1, 'should show one album');
   });
 });
+
+test('access artist through an album', function (assert) {
+  visit('/albums');
+
+  click('li:first-child');
+  click('a.artist-link');
+
+  andThen(function () {
+    assert.equal(find('.artist').length, 1, 'should show one artist');
+  });
+});
+
+test('should show comments for a given album', function (assert) {
+  visit('/albums');
+
+  click('li:first-child');
+
+  andThen(function () {
+    assert.equal(find('.comment').length, 10, 'should show 10 album comments');
+  });
+});
