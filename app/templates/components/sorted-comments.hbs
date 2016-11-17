@@ -1,0 +1,7 @@
+{{#each sortedComments as |comment|}}
+  <div class="comment">
+    <p class="comment-author">-- Author: {{comment.author}}</p>
+    <p class="comment-time">Created At: {{comment.created_at}}</p>
+    <p class="comment-message">Message: {{comment.message}}</p>
+  </div>
+{{/each}}

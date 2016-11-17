@@ -31,12 +31,12 @@ module.exports = {
 
   save: function(modelName, data) {
     var store = this._findOrCreateStore(modelName);
-    
+
     if (data.id) {
       data.id = +data.id;
-      data.created_at = (new Date()).toString();
     } else {
       data.id = this._getNextIdForModel(modelName);
+      data.created_at = (new Date()).toString();
     }
 
     data.updated_at = (new Date()).toString();
@@ -56,4 +56,3 @@ module.exports = {
     return this.models[modelName].length + 1;
   },
 };
-

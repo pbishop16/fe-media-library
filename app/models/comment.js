@@ -3,9 +3,9 @@ import DS from 'ember-data';
 const { attr, belongsTo } = DS;
 
 export default DS.Model.extend({
-  author: attr('String'),
-  message: attr('String'),
+  author: attr('string'),
+  message: attr('string'),
   album: belongsTo('album'),
-  created_at: attr('Date'),
-  updated_at: attr('Date')
+  created_at: attr('date'),
+  updated_at: attr('date')
 });
