@@ -6,6 +6,14 @@ module.exports = function(options) {
     var express = require('express');
     var theRouter = express.Router();
 
+    // Adds support for JSON-encoded bodies
+    var bodyParser = require('body-parser');
+    app.use( bodyParser.json() );
+    // Adds support for URL-encoded bodies
+    app.use( bodyParser.urlencoded({
+      extended: true
+    }));
+
     theRouter.get('/', function(req, res) {
       var page = parseInt(req.query.page) || 1;
       var per_page = parseInt(req.query.per_page) || 20;
@@ -23,15 +31,15 @@ module.exports = function(options) {
           return 0;
         }
       });
-      
+
       if (sort_direction === 'desc') {
         records = records.reverse();
       }
-      
+
       var start = (page - 1) * per_page;
       var end = start + per_page;
       records = records.slice(start, end);
-      
+
       response[pluralName] = records;
       response['meta'] = {
         total: allRecords.length,
@@ -41,10 +49,10 @@ module.exports = function(options) {
     });
 
     theRouter.post('/', function(req, res) {
-      var requestData = JSON.parse(req.requestBody);
+      var requestData = req.body;
       var response = {};
       response[singularName] = data.save(singularName, requestData[singularName]);
-      
+
       res.json(response);
     });
 
@@ -56,7 +64,7 @@ module.exports = function(options) {
     });
 
     theRouter.put('/:id', function(req, res) {
-      var requestData = JSON.parse(req.requestBody);
+      var requestData = req.body;
       var response = {};
       response[singularName] = data.save(singularName, requestData[singularName]);
 
