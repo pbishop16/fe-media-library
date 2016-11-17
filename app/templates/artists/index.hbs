@@ -1,6 +1,8 @@
 <div class="artist-list">
-  {{#each model as |artist|}}
-    {{#link-to 'artists.artist' artist}}<li class="artist-item">{{artist.name}}</li>{{/link-to}}
-  {{/each}}
+  <ul>
+    {{#each filteredArtists as |artist|}}
+      {{#link-to 'artists.artist' artist}}<li class="artist-item">{{artist.name}}</li>{{/link-to}}
+    {{/each}}
+  </ul>
 </div>
 {{outlet}}
