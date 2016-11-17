@@ -3,7 +3,20 @@
   <h3>Artist: {{#link-to 'artists.artist' model.artist_id class="artist-link"}}{{model.artist_id.name}}{{/link-to}}</h3>
   <p>Release Year: {{model.year}}</p>
   <p>Total Copies Sold: {{model.total_sold}}</p>
-
+  <button type="button" {{action 'createComment'}}>New Comment</button>
+  <hr>
+  {{#if newComment}}
+    <div class="">
+      <label class="form-label">Author</label>
+      {{input value=commentAuthor placeholder="Enter name..."}}
+    </div>
+    <div class="">
+      <label class="form-label">Message</label>
+      {{textarea rows=4 value=commentMessage placeholder="Enter message..."}}
+    </div>
+    <button type="button" {{action 'addComment'}} disabled={{isNotValid}}>Save</button>
+    <hr>
+  {{/if}}
   <div class="comments-list">
     {{sorted-comments comments=model.comment_ids}}
   </div>
