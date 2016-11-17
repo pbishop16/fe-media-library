@@ -1,1 +1,32 @@
+<section>
+  <p>Total Artists: {{artistsTotal}}</p>
+  <p>Total Albums: {{albumsTotal}}</p>
+  <div class="">
+    <div class="home-list">
+      <h4>Available Albums By Year:</h4>
+      <ul class="">
+        {{#each-in totalAlbumsByYear as |year total|}}
+          <li>{{#link-to 'albums' (query-params yearFilter=year per_page=albumsTotal)}}{{year}}{{/link-to}}: {{total}}</li>
+        {{/each-in}}
+      </ul>
+    </div>
+    <div class="home-list">
+      <h4>Locations for available Artists:</h4>
+      <ul class="">
+        {{#each uniqArtistLocations as |location|}}
+          <li>{{#link-to 'artists' (query-params locationFilter=location per_page=artistsTotal)}}{{location}}{{/link-to}}</li>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="home-list">
+      <h4>Top Selling Artists:</h4>
+      <ul>
+        {{#each popularArtists as |artist|}}
+          <li>{{#link-to 'artists.artist' artist}}{{artist.name}}{{/link-to}} | {{artist.totalAlbumsSold}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+
+</section>
 {{outlet}}
