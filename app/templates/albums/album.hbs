@@ -1,0 +1,16 @@
+<div class="album">
+  <h2>{{model.name}}</h2>
+  <h3>Artist: {{#link-to 'artists.artist' model.artist_id}}{{model.artist_id.name}}{{/link-to}}</h3>
+  <p>Release Year: {{model.year}}</p>
+  <p>Total Copies Sold: {{model.total_sold}}</p>
+
+  <div class="comments-list">
+    {{#each model.comment_ids as |comment|}}
+      <div class="comment">
+        <p class="comment-author">-- Author: {{comment.author}}</p>
+        <p class="comment-time">Created At: {{comment.created_at}}</p>
+        <p class="comment-message">Message: {{comment.message}}</p>
+      </div>
+    {{/each}}
+  </div>
+</div>
