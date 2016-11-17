@@ -1,4 +1,9 @@
-<h2 id="title">Media Catalog</h2>
-
-{{outlet}}
-
+<nav class="">
+  <h2 id="title">Media Catalog</h2>
+  {{link-to 'Home' 'index' class="home-link"}}
+  {{link-to 'Artists' 'artists' class="artist-link"}}
+  {{link-to 'Albums' 'albums' class="albums-link"}}
+</nav>
+<div class="content">
+  {{outlet}}
+</div>

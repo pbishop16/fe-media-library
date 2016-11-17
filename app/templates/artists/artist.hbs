@@ -1,0 +1,13 @@
+<div class="artist">
+  <h3>{{model.name}}</h3>
+  <h4>Founding Year: {{model.founding_year}}</h4>
+  <h4>Location: {{model.based_in}}</h4>
+  <h4>Total Albums Sold: {{model.totalAlbumsSold}}</h4>
+  <ul class="albums-list">
+    {{#each model.album_ids as |album|}}
+      {{#link-to 'albums.album' album}}
+        <li class="album-item">{{album.name}}</li>
+      {{/link-to}}
+    {{/each}}
+  </ul>
+</div>
