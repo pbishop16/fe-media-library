@@ -5,12 +5,6 @@
   <p>Total Copies Sold: {{model.total_sold}}</p>
 
   <div class="comments-list">
-    {{#each model.comment_ids as |comment|}}
-      <div class="comment">
-        <p class="comment-author">-- Author: {{comment.author}}</p>
-        <p class="comment-time">Created At: {{comment.created_at}}</p>
-        <p class="comment-message">Message: {{comment.message}}</p>
-      </div>
-    {{/each}}
+    {{sorted-comments comments=model.comment_ids}}
   </div>
 </div>
