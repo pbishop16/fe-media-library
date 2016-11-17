@@ -70,8 +70,9 @@ test('should list albums', function (assert) {
 });
 
 test('should show albums', function (assert) {
-  visit('/albums');
+  visit('/');
 
+  click('a.albums-link');
   click('li:first-child');
 
   andThen(function () {
