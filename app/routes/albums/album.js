@@ -7,6 +7,8 @@ export default Ember.Route.extend({
   actions: {
     createComment() {
       this.controller.toggleProperty('newComment');
+      this.controller.set('commentAuthor', '');
+      this.controller.set('commentMessage', '');
     },
     addComment() {
       let comment = this.store.createRecord('comment', {
