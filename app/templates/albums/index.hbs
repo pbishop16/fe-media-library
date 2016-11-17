@@ -1,6 +1,8 @@
 <div class="album-list">
-  {{#each model as |album|}}
-    {{#link-to 'albums.album' album}}<li class="album-item">{{album.name}}</li>{{/link-to}}
-  {{/each}}
+  <ul>
+    {{#each filteredAlbums as |album|}}
+      {{#link-to 'albums.album' album}}<li class="album-item">{{album.name}}</li>{{/link-to}}
+    {{/each}}
+  </ul>
 </div>
 {{outlet}}
