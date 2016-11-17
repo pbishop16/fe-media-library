@@ -1,6 +1,6 @@
 <div class="album">
   <h2>{{model.name}}</h2>
-  <h3>Artist: {{#link-to 'artists.artist' model.artist_id}}{{model.artist_id.name}}{{/link-to}}</h3>
+  <h3>Artist: {{#link-to 'artists.artist' model.artist_id class="artist-link"}}{{model.artist_id.name}}{{/link-to}}</h3>
   <p>Release Year: {{model.year}}</p>
   <p>Total Copies Sold: {{model.total_sold}}</p>
 
