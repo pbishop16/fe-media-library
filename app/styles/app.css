@@ -23,13 +23,33 @@ nav a {
   margin: 4px;
 }
 
-.home-list {
+ul {
+  list-style: none;
+}
+
+li {
+  margin-left: -30px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;;
+  align-items: flex-start;
+  align-content: center;
+  margin: 2px;
+}
+
+.home-list, .bar-chart {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
   background-color: #D2D6DB;
   padding: 6px;
   margin: 3px;
   box-shadow: inset 1px 1px 2px #333;
   border-radius: 5px;
-  height: 450px;
+  height: 500px;
   overflow-y: auto;
 }
 
@@ -188,4 +208,39 @@ button.delete-comment-button {
             transform: perspective(140px) rotateY(180deg);
     opacity: 0;
   }
+}
+
+.bar-chart {
+  width: 800px;
+  overflow-x: scroll;
+}
+
+.bar-chart .heading {
+  position: fixed;
+  left: 50px;
+  font-size: 1.5em;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #fff;
+}
+
+.axis text {
+  font-size: 13px;
+}
+
+.bar {
+  fill: #8CD3DD;
+}
+
+.bar:hover {
+  fill: #F56C4E;
+}
+
+.label {
+  fill:white;
+  font-size: 16px;
+  font-weight: 600;
+  text-anchor: middle;
 }
