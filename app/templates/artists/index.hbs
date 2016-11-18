@@ -1,5 +1,11 @@
 <div class="artist-list">
   <h4 class="heading">Artists List:</h4>
+  <div class="pagination-control">
+    <button type="button" {{action 'previousPage'}}> previous </button>
+    <span>{{page}} of {{pagesTotal}}</span>
+    <button type="button" {{action 'nextPage'}}> next </button>
+  </div>
+  <hr>
   <ul>
     {{#each filteredArtists as |artist|}}
       {{#link-to 'artists.artist' artist}}<li class="artist-item">{{artist.name}}</li>{{/link-to}}

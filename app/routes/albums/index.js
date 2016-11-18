@@ -24,6 +24,18 @@ export default Ember.Route.extend({
       resetFilters() {
         this.controller.set('searchFilter', '');
         this.transitionTo({ queryParams: {yearFilter: '',sort_on: 'name', sort_direction: '', per_page: 20, page: 1}});
+      },
+      previousPage() {
+        if (this.controller.get('page') > 1) {
+          this.controller.decrementProperty('page');
+          this.transitionTo({queryParams: {page: this.controller.get('page')}});
+        }
+      },
+      nextPage() {
+        if (this.controller.get('page') !== this.controller.get('pagesTotal')) {
+          this.controller.incrementProperty('page');
+          this.transitionTo({queryParams: {page: this.controller.get('page')}});
+        }
       }
 
     }
