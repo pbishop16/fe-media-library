@@ -1,4 +1,5 @@
 <div class="artist-list">
+  <h4 class="heading">Artists List:</h4>
   <ul>
     {{#each filteredArtists as |artist|}}
       {{#link-to 'artists.artist' artist}}<li class="artist-item">{{artist.name}}</li>{{/link-to}}

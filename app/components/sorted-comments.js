@@ -6,6 +6,12 @@ export default Ember.Component.extend({
     return new Date(b.created_at) - new Date(a.created_at);
   }),
   //Added second sort to ensure help sorting
-  sortedCommentsRefine: Ember.computed.sort('sortedComments', 'sortComments')
+  sortedCommentsRefine: Ember.computed.sort('sortedComments', 'sortComments'),
+
+  actions: {
+    deleteComment(param) {
+      this.sendAction('action', param);
+    }
+  }
 
 });

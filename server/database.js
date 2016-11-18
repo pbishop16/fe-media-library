@@ -34,6 +34,11 @@ module.exports = {
 
     if (data.id) {
       data.id = +data.id;
+
+      /* Added the below to remove the current record
+      inorder to mitigate duplicates on update */
+      var item = this.find(modelName, data.id);
+      store.splice(store.indexOf(item), 1);
     } else {
       data.id = this._getNextIdForModel(modelName);
       data.created_at = (new Date()).toString();

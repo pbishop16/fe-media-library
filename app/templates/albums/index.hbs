@@ -1,4 +1,5 @@
 <div class="album-list">
+  <h4 class="heading">Albums List:</h4>
   <ul>
     {{#each filteredAlbums as |album|}}
       {{#link-to 'albums.album' album}}<li class="album-item">{{album.name}}</li>{{/link-to}}
