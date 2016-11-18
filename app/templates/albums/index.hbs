@@ -1,5 +1,12 @@
 <div class="album-list">
   <h4 class="heading">Albums List:</h4>
+
+  <div class="pagination-control">
+    <button type="button" {{action 'previousPage'}}> previous </button>
+    <span>{{page}} of {{pagesTotal}}</span>
+    <button type="button" {{action 'nextPage'}}> next </button>
+  </div>
+  <hr>
   <ul>
     {{#each filteredAlbums as |album|}}
       {{#link-to 'albums.album' album}}<li class="album-item">{{album.name}}</li>{{/link-to}}
