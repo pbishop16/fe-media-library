@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
   actions: {
     deleteComment(comment) {
       if (confirm('Do you want to delete this comment???')) {
-        this.get('model.comment_ids').removeObject(comment);
+        this.get('model.commentIds').removeObject(comment);
         comment.destroyRecord().then(() => {
           alert('Record removed...');
         }).catch((error) => {

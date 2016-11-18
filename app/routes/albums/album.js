@@ -22,7 +22,7 @@ export default Ember.Route.extend({
         album: model
       });
       comment.save().then((comment) => {
-        model.get('comment_ids').addObject(comment);
+        model.get('commentIds').addObject(comment);
         model.save();
       });
 
