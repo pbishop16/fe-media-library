@@ -55,7 +55,7 @@ export default Ember.Component.extend({
                   .attr("dy", ".4em")
                   .attr("transform", "rotate(-45)");
 
-    // Build the bars
+
     svgContainer.selectAll(".bar")
               .data(data)
               .enter()
@@ -66,7 +66,7 @@ export default Ember.Component.extend({
               .attr("y", function(d) { return yScale(d.count); })
               .attr("height", function(d) { return height - yScale(d.count); });
 
-// Adds the text labels at the top of each bar. Partially repeated inthe resize() function below for responsiveness.
+
     svgContainer.selectAll(".text")
               .data(data)
               .enter()
