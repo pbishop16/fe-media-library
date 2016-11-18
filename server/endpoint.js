@@ -65,6 +65,7 @@ module.exports = function(options) {
 
     theRouter.put('/:id', function(req, res) {
       var requestData = req.body;
+      requestData[singularName].id = req.params.id;
       var response = {};
       response[singularName] = data.save(singularName, requestData[singularName]);
 
