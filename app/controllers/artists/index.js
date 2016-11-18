@@ -7,9 +7,12 @@ export default Ember.Controller.extend({
   sort_on: '',
   sort_direction: '',
   per_page: null,
-  page: null,
+  page: 1,
   artistsTotal: Ember.computed('model', function() {
     return this.get('model.meta.total');
+  }),
+  pagesTotal: Ember.computed('model', function() {
+    return this.get('model.meta.total_pages');
   }),
   filteredArtists: Ember.computed('model.@each.name', 'searchFilter', function() {
     let results = this.get('model');

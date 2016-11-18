@@ -17,13 +17,25 @@ export default Ember.Route.extend({
   },
   resetController(controller, isExiting) {
     if (isExiting) {
-      controller.setProperties({locationFilter: '',sort_on: 'name', sort_direction: '', per_page: 0, page: 0});
+      controller.setProperties({locationFilter: '',sort_on: 'name', sort_direction: '', per_page: 0, page: 1});
     }
   },
   actions: {
     resetFilters() {
       this.transitionTo({ queryParams: {locationFilter: '',sort_on: 'name', sort_direction: '', per_page: 0, page: 0}});
       this.controller.set('searchFilter', '');
+    },
+    previousPage() {
+      if (this.controller.get('page') > 1) {
+        this.controller.decrementProperty('page');
+        this.transitionTo({queryParams: {page: this.controller.get('page')}});
+      }
+    },
+    nextPage() {
+      if (this.controller.get('page') !== this.controller.get('pagesTotal')) {
+        this.controller.incrementProperty('page');
+        this.transitionTo({queryParams: {page: this.controller.get('page')}});
+      }
     }
   }
 });
