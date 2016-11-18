@@ -95,6 +95,12 @@ button {
   box-shadow: 1px 1px 1px #888;
 }
 
+button.delete-comment-button {
+  background-color: #ee5645;
+  color: #fff;
+  font-size: .65em;
+}
+
 /* http://tobiasahlin.com/spinkit/ */
 .sk-folding-cube {
   margin: 100px auto;

@@ -14,10 +14,10 @@
       <label class="form-label">Message</label>
       {{textarea rows=4 value=commentMessage placeholder="Enter message..."}}
     </div>
-    <button type="button" {{action 'addComment'}} disabled={{isNotValid}}>Save</button>
+    <button type="button" {{action 'addComment' model}} disabled={{isNotValid}}>Save</button>
     <hr>
   {{/if}}
   <div class="comments-list">
-    {{sorted-comments comments=model.comment_ids}}
+    {{sorted-comments comments=model.comment_ids action='deleteComment'}}
   </div>
 </div>

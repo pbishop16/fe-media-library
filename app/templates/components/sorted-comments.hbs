@@ -3,5 +3,6 @@
     <p class="comment-author">-- Author: {{comment.author}}</p>
     <p class="comment-time">Created At: {{comment.created_at}}</p>
     <p class="comment-message">Message: {{comment.message}}</p>
+    <button type="button" class="delete-comment-button" {{action 'deleteComment' comment}}>Delete</button>
   </div>
 {{/each}}

@@ -1,8 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+
   model(params) {
     return this.store.findRecord('album', params.album_id);
+  },
+  setupController(controller) {
+    this._super(...arguments);
+    controller.set('newComment', false);
   },
   actions: {
     createComment() {
@@ -10,18 +15,23 @@ export default Ember.Route.extend({
       this.controller.set('commentAuthor', '');
       this.controller.set('commentMessage', '');
     },
-    addComment() {
+    addComment(model) {
       let comment = this.store.createRecord('comment', {
         author: this.controller.get('commentAuthor'),
         message: this.controller.get('commentMessage'),
-        album: this.controller.get('model')
+        album: model
       });
-      comment.save();
+      comment.save().then((comment) => {
+        model.get('comment_ids').addObject(comment);
+        model.save();
+      });
+
       this.controller.set('commentAuthor', '');
       this.controller.set('commentMessage', '');
       this.controller.toggleProperty('newComment');
     },
-    willTransition(transition) {
+
+    willTransition() {
       this.controller.set('commentAuthor', '');
       this.controller.set('commentMessage', '');
       this.controller.toggleProperty('newComment');
