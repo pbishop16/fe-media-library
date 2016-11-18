@@ -5,9 +5,9 @@ const { attr, belongsTo, hasMany } = DS;
 export default DS.Model.extend({
   name: attr('String'),
   year: attr(),
-  total_sold: attr('Number'),
-  artist: belongsTo('artist'),
-  comment_ids: hasMany('comment'),
-  created_at: attr('Date'),
-  updated_at: attr('Date')
+  totalSold: attr('Number'),
+  artistId: belongsTo('artist'),
+  commentIds: hasMany('comment'),
+  createdAt: attr('Date'),
+  updatedAt: attr('Date')
 });

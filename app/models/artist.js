@@ -5,11 +5,11 @@ const { attr, hasMany } = DS;
 
 export default DS.Model.extend({
   name: attr('String'),
-  based_in: attr('String'),
-  founding_year: attr(),
-  album_ids: hasMany('album'),
-  created_at: attr('Date'),
-  updated_at: attr('Date'),
-  allAlbumSizes: Ember.computed.mapBy('album_ids', 'total_sold'),
+  basedIn: attr('String'),
+  foundingYear: attr(),
+  albumIds: hasMany('album'),
+  createdAt: attr('Date'),
+  updatedAt: attr('Date'),
+  allAlbumSizes: Ember.computed.mapBy('albumIds', 'totalSold'),
   totalAlbumsSold: Ember.computed.sum('allAlbumSizes')
 });

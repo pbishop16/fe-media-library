@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
   albums_per_page: null,
 
   /* Artist Locations */
-  artistLocations: Ember.computed.mapBy('model.artists', 'based_in'),
+  artistLocations: Ember.computed.mapBy('model.artists', 'basedIn'),
   uniqArtistLocations: Ember.computed.uniq('artistLocations'),
 
   /* Top 5 Artists by ablums sold */

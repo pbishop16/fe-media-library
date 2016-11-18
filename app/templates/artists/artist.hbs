@@ -1,10 +1,12 @@
 <div class="artist">
   <h2>{{model.name}}</h2>
-  <h3>Founding Year: {{model.founding_year}}</h3>
-  <h4>Location: {{model.based_in}}</h4>
-  <h4>Total Albums Sold: {{model.totalAlbumsSold}}</h4>
+  <h3>Founding Year: {{model.foundingYear}}</h3>
+  <p>Location: {{model.basedIn}}</p>
+  <p>Total Albums Sold: {{model.totalAlbumsSold}}</p>
+  <hr>
+  <h3 class="section-heading">Albums:</h3>
   <ul class="albums-list">
-    {{#each model.album_ids as |album|}}
+    {{#each model.albumIds as |album|}}
       {{#link-to 'albums.album' album}}
         <li class="album-item">{{album.name}}</li>
       {{/link-to}}

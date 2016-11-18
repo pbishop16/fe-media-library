@@ -6,6 +6,6 @@ export default DS.Model.extend({
   author: attr('string'),
   message: attr('string'),
   album: belongsTo(),
-  created_at: attr('date'),
-  updated_at: attr('date')
+  createdAt: attr('date'),
+  updatedAt: attr('date')
 });
